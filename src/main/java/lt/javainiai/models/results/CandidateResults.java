@@ -19,7 +19,16 @@ public class CandidateResults {
 	
 	private long candidateVoteCount;
 	
-//	@OneToOne (mappedBy="candidate")
-//	private Candidate candidate;
+	@OneToOne (mappedBy="candidate")
+	private Candidate candidate;
+
+	public CandidateResults(long candidateResultsId, long candidateVoteCount, Candidate candidate) {
+		super();
+		this.candidateResultsId = candidateResultsId;
+		this.candidateVoteCount = candidateVoteCount;
+		this.candidate = candidate;
+	}
+	
+	
 	
 }

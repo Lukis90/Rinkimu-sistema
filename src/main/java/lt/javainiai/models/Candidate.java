@@ -35,14 +35,13 @@ public class Candidate {
 //	@ManyToOne
 //	private PollingDistrict pollingDistrict;
 	
-//	@OneToOne
-//	@JoinColumn(name="candidateResults")
-//	private CandidateResults candidateResults;
-	private long candidateResults;
+	@OneToOne
+	@JoinColumn(name="candidateResults")
+	private CandidateResults candidateResults;
 	
 	public Candidate() {}
 
-	public Candidate(String name, String surname, Date birthday, String discription, long candidateResults) {
+	public Candidate(String name, String surname, Date birthday, String discription, CandidateResults candidateResults) {
 		super();
 		this.name = name;
 		this.surname = surname;
