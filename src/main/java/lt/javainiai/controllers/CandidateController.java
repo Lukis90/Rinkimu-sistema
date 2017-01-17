@@ -15,7 +15,6 @@ public class CandidateController {
 	
 	@Autowired
 	public CandidateController(CandidateDao repository) {
-		super();
 		this.candidateRepository = repository;
 	}
 	
