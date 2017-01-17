@@ -4,8 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
+import lt.javainiai.models.PollingDistrictAssignee;
 
 @Data
 @Entity
@@ -20,23 +24,17 @@ public class PollingDistrict {
 	private String Address;
 	private long VotersCount;
 	
-//	@OneToMany(mappedBy="candidate")
-//	private List<Candidate> candidateList;
+	@OneToOne
+	private PollingDistrictAssignee assignee;
 	
-//	@OneToMany(mappedBy="pollingDistrictAssignee")
-//	private PollingDistrictAssignee assignee;
-	
-//	@ManyToOne
-//	private Constituency constituency_id;
+	@ManyToOne
+	@JoinColumn(name="constituencyId")
+	private Constituency constituency;
 
 	public PollingDistrict(String pollingDistrictName, String address, long votersCount) {
-		super();
 		PollingDistrictName = pollingDistrictName;
 		Address = address;
 		VotersCount = votersCount;
-//		this.candidateList = candidateList;
-//		this.assignee = assignee;
-//		this.constituency_id = constituency_id;
 	}
 
 }

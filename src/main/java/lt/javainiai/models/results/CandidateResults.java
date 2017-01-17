@@ -3,6 +3,7 @@ package lt.javainiai.models.results;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
@@ -19,14 +20,13 @@ public class CandidateResults {
 	
 	private long candidateVoteCount;
 	
-	@OneToOne (mappedBy="candidate")
+	@OneToOne (mappedBy="candidateResults")
+	@JoinColumn(name="candidateId")
 	private Candidate candidate;
 
-	public CandidateResults(long candidateResultsId, long candidateVoteCount, Candidate candidate) {
-		super();
+	public CandidateResults(long candidateResultsId, long candidateVoteCount) {
 		this.candidateResultsId = candidateResultsId;
 		this.candidateVoteCount = candidateVoteCount;
-		this.candidate = candidate;
 	}
 	
 	

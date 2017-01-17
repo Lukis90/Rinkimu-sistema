@@ -3,7 +3,8 @@ package lt.javainiai.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lt.javainiai.models.voting_areas.PollingDistrict;
@@ -20,7 +21,13 @@ public class PollingDistrictAssignee {
 	private String name;
 	private String surname;
 	
-//	@ManyToOne
-//	private PollingDistrict pollingDistrict;
+	@OneToOne (mappedBy="PollingDistrictAssignee")
+	@JoinColumn(name="polingDistrictId")
+	private PollingDistrict pollingDistrict;
+
+    public PollingDistrictAssignee(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
 	
 }

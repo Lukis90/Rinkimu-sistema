@@ -1,3 +1,4 @@
+
 package lt.javainiai.models;
 
 import java.util.Date;
@@ -27,30 +28,21 @@ public class Candidate {
 	private String surname;
 	private Date birthday;
 	
-//	@ManyToOne
-//	private Party party;
+	@ManyToOne
+	@JoinColumn(name="partyId")
+	private Party party;
 	
 	private String discription;
 	
-//	@ManyToOne
-//	private PollingDistrict pollingDistrict;
-	
 	@OneToOne
-	@JoinColumn(name="candidateResults")
 	private CandidateResults candidateResults;
 	
 	public Candidate() {}
 
-	public Candidate(String name, String surname, Date birthday, String discription, CandidateResults candidateResults) {
-		super();
+	public Candidate(String name, String surname, Date birthday, String discription) {
 		this.name = name;
 		this.surname = surname;
 		this.birthday = birthday;
-//		this.party = party;
 		this.discription = discription;
-//		this.pollingDistrict = pollingDistrict;
-		this.candidateResults = candidateResults;
 	}
-	
-	
 }
