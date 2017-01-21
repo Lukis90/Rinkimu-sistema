@@ -1,24 +1,25 @@
 package lt.javainiai.models;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
-import lt.javainiai.models.results.PartyResults;
-import lt.javainiai.models.voting_areas.Constituency;
 
 @Data
 @Entity
 @SuppressWarnings("unused")
-public class Party {
+public class Party implements Serializable{
 	
+	private static final long serialVersionUID = 5172740172601656817L;
+
 	@Id
 	@GeneratedValue
 	private long partyId;
@@ -26,19 +27,18 @@ public class Party {
 	private String partyName;
 	private int PartyNumber;
 	
-	@OneToMany
-	private List<Candidate> candidates;
+//	@OneToMany
+//	private List<Candidate> candidates;
 	
-	@OneToOne
-	private PartyResults partyResults;
+//	@OneToOne
+//	private PartyResults partyResults;
 	
 	@ManyToOne
 	@JoinColumn(name="constituencyId")
+	@JsonIgnore
 	private Constituency constituency;
 
-	public Party(String partyName, int partyNumber) {
-		this.partyName = partyName;
-		PartyNumber = partyNumber;
+	public Party() {
 	}
 	
 	

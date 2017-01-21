@@ -8,30 +8,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lt.javainiai.dao.CandidateDao;
 import lt.javainiai.models.Candidate;
 
-@RequestMapping("/api/candidate")
-@RestController
-public class CandidateController {
-	
-	private CandidateDao candidateRepository;
-	
-	@Autowired
-	public CandidateController(CandidateDao repository) {
-		this.candidateRepository = repository;
-	}
-	
-	@PostMapping("/add-candidate")
-	public String addCandidate(@RequestBody Candidate candidate) {
-		candidateRepository.save(candidate);
-		return candidate.toString();
-	}
-	
-	
-	@GetMapping("/get-candidate/{id}")
-	public void getCandidate(@PathVariable long id) {
-		candidateRepository.findOne(id);
-	}
-	
-}
+//@RequestMapping("/api/candidate")
+//@RestController
+//public class CandidateController {
+//	
+//	private CandidateDao candidateRepository;
+//	
+//	@Autowired
+//	public CandidateController(CandidateDao repository) {
+//		this.candidateRepository = repository;
+//	}
+//	
+//	@PostMapping("/add-candidate")
+//	public String addCandidate(@RequestBody Candidate candidate) {
+//		candidateRepository.save(candidate);
+//		return candidate.toString();
+//	}
+//	
+//	
+//	@GetMapping("/get-candidate/{id}")
+//	public void getCandidate(@PathVariable long id) {
+//		candidateRepository.findOne(id);
+//	}
+//	
+//}

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import lt.javainiai.models.PollingDistrictAssignee;
 
-@Repository
-public interface PollingDistrictAssigneeDao extends PagingAndSortingRepository<PollingDistrictAssignee, Long> {
-
-}
+//@Repository
+//public interface PollingDistrictAssigneeDao extends PagingAndSortingRepository<PollingDistrictAssignee, Long> {
+//
+//}

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import lt.javainiai.models.Candidate;
 
-@Repository
-public interface CandidateDao extends PagingAndSortingRepository<Candidate, Long> {
-
-}
+//@Repository
+//public interface CandidateDao extends PagingAndSortingRepository<Candidate, Long> {
+//
+//}
